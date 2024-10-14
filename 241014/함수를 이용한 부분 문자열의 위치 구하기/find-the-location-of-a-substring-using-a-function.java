@@ -4,7 +4,7 @@ public class Main {
     public static int func(String str, String part){
         for(int i=0;i<str.length();i++){
             boolean same = true;
-            for(int j=0;j<part.length()||i+j<str.length();j++){
+            for(int j=0;j<part.length()&&i+j<str.length();j++){
                 if(str.charAt(i+j)!=part.charAt(j)){
                     same = false;
                     break;
@@ -14,8 +14,6 @@ public class Main {
                 return i;
             }
         }
-
-
         return -1;
     }
 
