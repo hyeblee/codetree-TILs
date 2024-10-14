@@ -4,7 +4,7 @@ public class Main {
     public static int func(String str, String part){
         for(int i=0;i<str.length();i++){
             boolean same = true;
-            if(i+j>=str.length())
+            if(i+part.length()>=str.length())
                 continue;
             for(int j=0;j<part.length()&&i+j<str.length();j++){
                 if(str.charAt(i+j)!=part.charAt(j)){
