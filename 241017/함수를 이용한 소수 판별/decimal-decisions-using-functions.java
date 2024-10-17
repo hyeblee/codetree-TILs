@@ -22,6 +22,6 @@ public class Main {
                 sum+=i;
             }
         }
-        System.out.println(i);
+        System.out.println(sum);
     }
 }
