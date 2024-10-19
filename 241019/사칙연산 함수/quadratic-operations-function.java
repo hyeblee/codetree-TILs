@@ -19,27 +19,30 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scannner(System.in);
+        Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
-        int b = sc.next().charAt(0);
+        char b = sc.next().charAt(0);
         int c = sc.nextInt();
 
         int result=0;
 
-        if(b=="+"){
-            System.out.println(plus(a,c));
+        if(b=='+'){
+            result=plus(a,c);
         }
-        else if(b=="-"){
-            System.out.println(minus(a,c));
+        else if(b=='-'){
+            result=minus(a,c);
         }
-        else if(b=="/"){
-            System.out.println(divide(a,c));
+        else if(b=='/'){
+            result=divide(a,c);
         }
-        else if(b=="*"){
-            System.out.println(multiply(a,c));
+        else if(b=='*'){
+            result=multiply(a,c);
         }
         else {
             System.out.println("False");
+            return;
         }
+        System.out.println(a+" "+b+" "+c+" = "+result);
     }
+    
 }
