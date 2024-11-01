@@ -12,7 +12,7 @@ public class Main {
         for(int i=0;i<n;i++){
             int number = sc.nextInt();
             list.add(number);
-            if(number%2==1){
+            if(i%2==1){
                 Collections.sort(list);
                 System.out.print(list.get(list.size()/2)+" ");
             }
