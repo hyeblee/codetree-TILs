@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
 public class Main {
+	public static final int MAX_N = 100;
+
 	public static int n;
-	public static int[] arr = new int[100];
+	public static int[] arr = new int[MAX_N];
 
 	public static void main(String[] args) {
 		int cnt = 0;
