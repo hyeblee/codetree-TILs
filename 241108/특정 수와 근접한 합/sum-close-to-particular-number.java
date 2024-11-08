@@ -13,16 +13,16 @@ public class Main {
 			sum += arr[i];
 		}
 		
-		int result = sum;
+		int result = Math.abs(s-sum+arr[0]+arr[1]);
 		for(int i=0;i<n;i++) {
 			for(int j=i+1;j<n;j++){
 				int exceptTwo = arr[i]+arr[j];
 				int exceptSum = sum -exceptTwo;
-				result = Math.min(result, Math.abs(exceptSum));
+				result = Math.min(result, Math.abs(exceptSum-s));
 			}
 		}
 		
-		System.out.println(Math.abs(result-s));
+		System.out.println(result);
 		
 
 
