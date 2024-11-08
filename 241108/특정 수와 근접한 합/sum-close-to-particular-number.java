@@ -16,9 +16,10 @@ public class Main {
 		for(int i=0;i<n;i++) {
 			for(int j=i;j<n;j++){
 				int exceptTwo = arr[i]+arr[j];
-				result = Math.min(result, Math.abs(result- exceptTwo));
+				result = Math.min(result, Math.abs(s-sum+ exceptTwo));
 			}
 		}
+		
 		System.out.println(result);
 		
 
