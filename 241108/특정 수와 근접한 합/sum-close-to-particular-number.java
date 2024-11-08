@@ -12,15 +12,17 @@ public class Main {
 			arr[i] = sc.nextInt();
 			sum += arr[i];
 		}
+		
 		int result = sum;
 		for(int i=0;i<n;i++) {
-			for(int j=i;j<n;j++){
+			for(int j=i+1;j<n;j++){
 				int exceptTwo = arr[i]+arr[j];
-				result = Math.min(result, Math.abs(s-sum+ exceptTwo));
+				int exceptSum = sum -exceptTwo;
+				result = Math.min(result, Math.abs(exceptSum));
 			}
 		}
 		
-		System.out.println(result);
+		System.out.println(Math.abs(result-s));
 		
 
 
