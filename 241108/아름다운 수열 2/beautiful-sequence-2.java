@@ -3,12 +3,13 @@ import java.util.*;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+
 		int n = sc.nextInt();
 		int m = sc.nextInt();
-		int cnt = 0;
-		List<Integer> list = new ArrayList<>();
+
 		int[] arrA = new int[n];
 		int[] arrB = new int[m];
+
 		for (int i = 0; i < n; i++) {
 			arrA[i] = sc.nextInt();
 		}
@@ -16,21 +17,21 @@ public class Main {
 			arrB[i] = sc.nextInt();
 		}
 		Arrays.sort(arrB);
-		int answer = 0;
+		int cnt = 0;
 		for (int i = 0; i <= n - m; i++) {
+			boolean isSame = true;
 			int[] copy = Arrays.copyOfRange(arrA, i, i + m);
 			Arrays.sort(copy);
-			boolean same = true;
 			for (int j = 0; j < m; j++) {
-				if (arrB[j] != copy[j]) {
-					same = false;
+				if (copy[j] != arrB[j]) {
+					isSame = false;
 					break;
 				}
 			}
-			if (same) {
-				answer++;
+			if (isSame) {
+				cnt++;
 			}
 		}
-		System.out.println(answer);
+		System.out.println(cnt);
 	}
 }
