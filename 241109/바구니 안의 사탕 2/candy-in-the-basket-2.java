@@ -13,16 +13,9 @@ public class Main {
 			baskets[position - 1] += cnt;
 		}
 		int maxSum = 0;
-		if(k>50) {
-			int sum = 0;
-			for (int j = 0; j <= 100; j++) {
-				sum += baskets[j];
-			}
-			System.out.println(sum);
-			return;
-		}
+		
 
-		for (int i = 0; i <= 101 - 2 * k; i++) {
+		for (int i = 0; i <= 100; i++) {
 			int sum = 0;
 			for (int j = 0; j <= 2 * k && i+j <= 100; j++) {
 				sum += baskets[i + j];
