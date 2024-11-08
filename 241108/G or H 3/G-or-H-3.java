@@ -13,9 +13,9 @@ public class Main {
 			arr[position] += alphabet - 'F';
 		}
 		int maxSum=0;
-		for(int i=0;i<=n-k+1;i++) {
+		for(int i=1;i<=10001-k;i++) {
 			int sum = 0;
-			for(int j=1;j<=k+1;j++) {
+			for(int j=0;j<k;j++) {
 				sum+=arr[j+i];
 			}
 			maxSum = Math.max(maxSum, sum);
