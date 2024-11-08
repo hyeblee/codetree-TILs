@@ -16,7 +16,7 @@ public class Main {
 //		System.out.println(baskets[4]);
 		for (int i = 0; i <= 100 - 2 * k; i++) {
 			int sum = 0;
-			for (int j = 0; j < 2*k; j++) {
+			for (int j = 0; j <= 2*k; j++) {
 				sum += baskets[i+j];
 //				System.out.print(i+j+" ");
 			}
