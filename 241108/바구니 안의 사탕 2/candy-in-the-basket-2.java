@@ -10,14 +10,15 @@ public class Main {
 		for (int i = 0; i < n; i++) {
 			int cnt = sc.nextInt();
 			int position = sc.nextInt();
-			baskets[position-1] += cnt;
+			baskets[position - 1] += cnt;
 		}
 		int maxSum = 0;
-//		System.out.println(baskets[4]);
-		for (int i = 0; i <= 100 - 2 * k; i++) {
+
+
+		for (int i = 0; i <= 101 - 2 * k; i++) {
 			int sum = 0;
-			for (int j = 0; j <= 2*k; j++) {
-				sum += baskets[i+j];
+			for (int j = 0; j <= 2 * k && i+j <= 100; j++) {
+				sum += baskets[i + j];
 //				System.out.print(i+j+" ");
 			}
 //			System.out.println(sum);
