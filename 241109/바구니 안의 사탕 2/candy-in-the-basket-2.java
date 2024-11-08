@@ -2,27 +2,27 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+	public static final int MAX_NUM = 100;
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int k = sc.nextInt();
-		int[] baskets = new int[101];
+		int[] baskets = new int[MAX_NUM + 1];
 		for (int i = 0; i < n; i++) {
-			int cnt = sc.nextInt();
+			int candy = sc.nextInt();
 			int position = sc.nextInt();
-			baskets[position - 1] += cnt;
+			baskets[position] += candy;
 		}
 		int maxSum = 0;
-		
-
-		for (int i = 0; i <= 100; i++) {
+		for (int i = 1; i <= MAX_NUM; i++) {
 			int sum = 0;
-			for (int j = 0; j <= 2 * k && i+j <= 100; j++) {
-				sum += baskets[i + j];
-//				System.out.print(i+j+" ");
+			for (int j = i - k; j <= i + k; j++) {
+				if (j > 0 && j <= MAX_NUM) {
+					sum += baskets[j];
+				}
 			}
-//			System.out.println(sum);
-			maxSum = Integer.max(maxSum, sum);
+			maxSum = Integer.max(maxSum,sum);
 		}
 		System.out.println(maxSum);
 	}
