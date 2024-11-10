@@ -19,7 +19,7 @@ public class Main {
 		}
 
 		int minCost = Integer.MAX_VALUE;
-		for(int i=0;i<n;i++) { // 탐색 시작 범위
+		for(int i=0;i<=n-t;i++) { // 탐색 시작 범위
 			int cost = 0;
 			for(int j = i;j<i+t;j++) { // 탐색 범위 크기 t로 고정해서 탐색
 				cost += arr[j];
