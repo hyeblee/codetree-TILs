@@ -23,11 +23,15 @@ public class Main {
 				// 사람 없으면 길이 세면 안되니까 탐색 안함
 				if(arr[i]==0||arr[j]==0)
 					continue;
-				int sum = 0;
+				int cntG == 0;
+				int cntH == 0;
 				for(int k=i;k<=j;k++) {
-					sum+=arr[k];
+					if(arr[k]==-1)
+						cntG++;
+					else if(arr[k]==1)
+						cntH++;
 				}
-				if(sum==0 || Math.abs(sum)==n) {
+				if(cntH==0 ||cntG==0 || cntG==cntH) {
 					int range = j-i;
 					maxRange = Math.max(maxRange, range);
 				}
