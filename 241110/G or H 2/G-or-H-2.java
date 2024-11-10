@@ -27,7 +27,7 @@ public class Main {
 				for(int k=i;k<=j;k++) {
 					sum+=arr[k];
 				}
-				if(sum==0) {
+				if(sum==0 || Math.abs(sum)==n) {
 					int range = j-i;
 					maxRange = Math.max(maxRange, range);
 				}
