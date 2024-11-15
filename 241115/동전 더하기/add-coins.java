@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.*;
 
 public class Main {
@@ -12,16 +13,17 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         k = sc.nextInt();
-        for(int i=0;i<k;i++){
+        for(int i=0;i<n;i++){
             arr[i]=sc.nextInt();
         }
 
-        for(int i=0;i<k;i++){
-            if(k==0)
-                break;
+        for(int i=n-1;i>=0;i--){
             int cnt = k/arr[i];
             k-=arr[i]*cnt;
             minCnt+=cnt;
+            if(k==0)
+                break;
+            
         }
         System.out.println(minCnt);
     }
