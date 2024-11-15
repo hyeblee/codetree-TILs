@@ -20,8 +20,7 @@ public class Main {
         for(int i=n-1;i>=0;i--){
             answer += k/arr[i];
             k = k % answer; // 몫으로 나누고 남은 나머지로 갱싱!
-            if(k==0)
-                break;
+
             
         }
         System.out.println(answer);
