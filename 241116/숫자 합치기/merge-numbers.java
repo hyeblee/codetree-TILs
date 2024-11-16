@@ -17,7 +17,7 @@ public class Main {
 			int n = sc.nextInt();
 			list.add(n);
 		}
-		int totalCost = 0;
+		long totalCost = 0;
 		while(list.size()>= 2) {
 			Collections.sort(list);
 			int cost = list.get(0)+list.get(1);
