@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static final int MAX_N = 100000;
+	public static final int MIN_N = -1000;
 	
 	public static int n;
 	public static int[] arr = new int[MAX_N];
@@ -13,7 +14,9 @@ public class Main {
     	for(int i=0;i<n;i++) {
     		arr[i] = sc.nextInt();
     	}
-    	int maxSum = 0;
+    	
+    	//항상 합이 양수라는 보장은 없음. . .
+    	int maxSum = MIN_N;
     	int sum=0;
     	for(int i=0;i<n;i++) {
     		sum+=arr[i];
