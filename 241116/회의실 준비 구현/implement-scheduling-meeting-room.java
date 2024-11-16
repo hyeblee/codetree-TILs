@@ -38,12 +38,14 @@ public class Main {
 		
 		int answer = 0;
 		int current = 0;
+		int s;
 		for(int i=0;i<meetings.size();i++) {
-			int s = meetings.get(i).s;
-			if(s>=current)
+			s = meetings.get(i).s;
+			if(s>=current) {
 				answer++;
+				current = meetings.get(i).e;
+			}
 		}
-		answer--;
 		System.out.println(answer);
 		
 	}
