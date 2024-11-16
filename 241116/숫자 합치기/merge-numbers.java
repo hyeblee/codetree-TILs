@@ -24,7 +24,9 @@ public class Main {
 			totalCost += cost;
 			list.add(cost);
 			list.remove(0);
-			list.remove(1);
+			// list.remove(1)하면 원래 인덱스 2가 삭제됨
+			// 왜냐면 0이 이미 삭제되서 1이 0이 되었기 떄문..
+			list.remove(0);
 		}
 		System.out.println(totalCost);
 	}
