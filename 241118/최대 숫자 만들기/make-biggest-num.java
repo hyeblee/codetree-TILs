@@ -29,10 +29,10 @@ public class Main {
 			}
 			
 		});
-		String answer ="";
-		for(String str:arr) {
-			answer+=str;
-		}
+		StringBuilder answer = new StringBuilder();
+        for (String str : arr) {
+            answer.append(str);
+        }
 		System.out.println(answer);
 	}
 
