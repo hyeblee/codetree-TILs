@@ -25,9 +25,7 @@ public class Main {
 			public int compare(String o1, String o2) {
 				String str1 = o1+o2;
 				String str2 = o2+o1;
-				Long n1 = Long.valueOf(str1);
-				Long n2 = Long.valueOf(str2);
-				return Long.compare(n2, n1);		
+				return str1.compareTo(str2);
 			}
 			
 		});
