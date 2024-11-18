@@ -26,7 +26,6 @@ public class Main {
 				if(o2.charAt(0)!=o1.charAt(0))
 					return Integer.compare(o2.charAt(0), o1.charAt(0));
 				if(o1.startsWith(o2)) {
-					System.out.println(o1+":"+o2);
 					int length = o2.length();
 					return Integer.compare(o2.charAt(0),o1.charAt(length));
 				}
