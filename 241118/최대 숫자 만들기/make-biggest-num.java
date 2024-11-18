@@ -30,10 +30,11 @@ public class Main {
 					int length = o2.length();
 					return Integer.compare(o2.charAt(0),o1.charAt(length));
 				}
-				else {
+				if(o2.startsWith(o1)) {
 					int length = o1.length();
 					return Integer.compare(o2.charAt(length),o1.charAt(0));
 				}
+                return 0;
 			}
 			
 		});
