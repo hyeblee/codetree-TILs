@@ -23,17 +23,11 @@ public class Main {
 
 			@Override
 			public int compare(String o1, String o2) {
-				if(o2.charAt(0)!=o1.charAt(0))
-					return Integer.compare(o2.charAt(0), o1.charAt(0));
-				if(o1.startsWith(o2)) {
-					int length = o2.length();
-					return Integer.compare(o2.charAt(0),o1.charAt(length));
-				}
-				if(o2.startsWith(o1)) {
-					int length = o1.length();
-					return Integer.compare(o2.charAt(length),o1.charAt(0));
-				}
-                return 0;
+				String str1 = o1+o2;
+				String str2 = o2+o1;
+				int n1 = Integer.valueOf(str1);
+				int n2 = Integer.valueOf(str2);
+				return Integer.compare(n2, n1);		
 			}
 			
 		});
