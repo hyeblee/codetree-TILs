@@ -12,7 +12,7 @@ class Meeting {
 	}
 
 	public void printStatus() {
-		System.out.println("secret code: " + secretCode);
+		System.out.println("secret code : " + secretCode);
 		System.out.println("meeting point : " + meetingPoint);
 		System.out.println("time : " + time);
 	}
