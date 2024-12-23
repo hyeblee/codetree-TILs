@@ -15,19 +15,21 @@ public class Main {
 			String input = br.readLine();
 			StringTokenizer st = new StringTokenizer(input," ");
 			String cmd = st.nextToken();
+//			System.out.println(Integer.toBinaryString(s));
 			if(cmd.equals("clear")) {
 				s = 0;
-			} else if (cmd.equals("add")) {
+			}
+			else if (cmd.equals("add")) {
 				int x = Integer.parseInt(st.nextToken());
 				if(((s>>x)&1)!=0) {
-					return;
+					continue;
 				}
 				s += 1<<x;
 			}
 			else if (cmd.equals("delete")) {
 				int x = Integer.parseInt(st.nextToken());
 				if(((s>>x)&1)==0)
-					return;
+					continue;
 				s -= (1<<x);
 			}
 			else if (cmd.equals("print")) {
@@ -39,6 +41,7 @@ public class Main {
 			}
 			else if (cmd.equals("toggle")) {
 				int x = Integer.parseInt(st.nextToken());
+				System.out.println("x="+x);
 				if(((s>>x)&1)!=0) {
 					s -= (1<<x);
 				}
