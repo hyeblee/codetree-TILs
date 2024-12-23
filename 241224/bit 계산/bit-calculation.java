@@ -26,6 +26,8 @@ public class Main {
 			}
 			else if (cmd.equals("delete")) {
 				int x = Integer.parseInt(st.nextToken());
+				if(((s>>x)&1)==0)
+					return;
 				s -= (1<<x);
 			}
 			else if (cmd.equals("print")) {
