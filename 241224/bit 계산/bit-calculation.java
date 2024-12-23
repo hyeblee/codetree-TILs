@@ -41,7 +41,6 @@ public class Main {
 			}
 			else if (cmd.equals("toggle")) {
 				int x = Integer.parseInt(st.nextToken());
-				System.out.println("x="+x);
 				if(((s>>x)&1)!=0) {
 					s -= (1<<x);
 				}
