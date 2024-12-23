@@ -8,14 +8,13 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		// StringBuilder sb = new StringBuilder("");
+		StringBuilder sb = new StringBuilder("");
 		M = Integer.parseInt(br.readLine());
 		int s = 0;
 		for(int i=0;i<M;i++) {
 			String input = br.readLine();
 			StringTokenizer st = new StringTokenizer(input," ");
 			String cmd = st.nextToken();
-			System.out.println(Integer.toBinaryString(s));
 			if(cmd.equals("clear")) {
 				s = 0;
 			} else if (cmd.equals("add")) {
