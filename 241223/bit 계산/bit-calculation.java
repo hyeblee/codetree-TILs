@@ -34,9 +34,9 @@ public class Main {
 			else if (cmd.equals("print")) {
 				int x = Integer.parseInt(st.nextToken());
 				if((s&(1<<x))==0)
-					sb.append(0+"\n");
+					System.out.println("0");
 				else
-					sb.append(1+"\n");
+					System.out.println("1");
 					
 			}
 			else if (cmd.equals("toggle")) {
@@ -46,6 +46,5 @@ public class Main {
 				s|=(1<<x);
 			}
 		}
-		System.out.println(sb);
 	}
 }
