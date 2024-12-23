@@ -29,7 +29,7 @@ public class Main {
 				if((s&(1<<x))==0) { // 없으면 종료
 					return;
 				}
-				s ^= 1<<(x-1);
+				s ^= 1<<x;
 			}
 			else if (cmd.equals("print")) {
 				int x = Integer.parseInt(st.nextToken());
