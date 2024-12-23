@@ -15,6 +15,7 @@ public class Main {
 			String input = br.readLine();
 			StringTokenizer st = new StringTokenizer(input," ");
 			String cmd = st.nextToken();
+			System.out.println(Integer.toBinaryString(s));
 			if(cmd.equals("clear")) {
 				s = 0;
 			} else if (cmd.equals("add")) {
@@ -39,7 +40,12 @@ public class Main {
 			}
 			else if (cmd.equals("toggle")) {
 				int x = Integer.parseInt(st.nextToken());
-				s^=(1<<x);
+				if(((s>>x)&1)!=0) {
+					s -= (1<<x);
+				}
+				else {
+					s += 1<<x;
+				}
 			}
 		}
 	}
