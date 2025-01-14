@@ -42,22 +42,24 @@ public class Main{
 	public static int sum(int y, int x) {
 		int max = 0;
 		
-		for(int k=0;k<6;k++) {
+		for(int i = 0; i < 6; i++) {
+			boolean isPossible = true;
 			int sum = 0;
-			for(int i=0;i<3;i++) {
-				for(int j=0;j<3;j++) {
-					if((y+i>=n||x+j>=m)&&shape[k][i][j]==1) {
-						sum = 0;
-						break;
-					}
-					if((y+i>=n||x+j>=m)) {
+			for(int dy = 0; dy<3;dy++) {
+				for(int dx=0;dx<3;dx++) {
+					if(shape[i][dy][dx]==0)
 						continue;
+					if(x+dx>=m||y+dy>=n) {
+						isPossible = false;
 					}
-					sum += grid[y+i][x+j]*shape[k][i][j];
+					else
+						sum += grid[y+dy][x+dx];
 				}
 			}
-			max = Math.max(max, sum);
+			if(isPossible)
+				max = Math.max(max, sum);
 		}
+		
 		return max;
 	}
 	public static void main(String[] args) throws IOException{
