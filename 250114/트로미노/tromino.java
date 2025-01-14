@@ -50,6 +50,9 @@ public class Main{
 						sum = 0;
 						break;
 					}
+					if((y+i>=n||x+j>=m)) {
+						continue;
+					}
 					sum += grid[y+i][x+j]*shape[k][i][j];
 				}
 			}
