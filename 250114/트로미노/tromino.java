@@ -46,7 +46,7 @@ public class Main{
 			int sum = 0;
 			for(int i=0;i<3;i++) {
 				for(int j=0;j<3;j++) {
-					if((y+i>n||x+j>m)&&shape[k][i][j]==1) {
+					if((y+i>=n||x+j>=m)&&shape[k][i][j]==1) {
 						sum = 0;
 						break;
 					}
