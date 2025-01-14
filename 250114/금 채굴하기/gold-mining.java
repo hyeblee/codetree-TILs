@@ -40,7 +40,7 @@ public class Main {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
 					int num = sum(i,j,k);
-					if(num*m-k*k-(k+1)*(k+1)>0) {
+					if(num*m-k*k-(k+1)*(k+1)>=0) {
 						maxCnt = num;
 					}
 				}
