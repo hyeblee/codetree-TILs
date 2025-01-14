@@ -19,7 +19,8 @@ public class Main {
 			for (int dx = x - k; dx <= x + k; dx++) {
 				if(dy<0||dy>=n||dx<0||dx>=n)
 					continue;
-				sum += grid[dy][dx];
+				if(Math.abs(dy-y)+Math.abs(dx-x)<=k)
+					sum += grid[dy][dx];
 			}
 		}
 		return sum;
@@ -40,7 +41,8 @@ public class Main {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
 					int num = sum(i,j,k);
-					if(num*m-k*k-(k+1)*(k+1)>=0) {
+					if(num*m>=k*k+(k+1)*(k+1)) {
+//						System.out.println(k*k+(k+1)*(k+1)+":  "+num);
 						maxCnt = num;
 					}
 				}
