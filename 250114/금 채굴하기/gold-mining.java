@@ -15,10 +15,8 @@ public class Main {
 	public static int sum(int y, int x, int k) {
 		int sum = 0;
 		
-		for (int dy = y - k; dy <= y + k; dy++) {
-			for (int dx = x - k; dx <= x + k; dx++) {
-				if(dy<0||dy>=n||dx<0||dx>=n)
-					continue;
+		for (int dy = 0; dy < n; dy++) {
+			for (int dx = 0; dx < n; dx++) {
 				if(Math.abs(dy-y)+Math.abs(dx-x)<=k)
 					sum += grid[dy][dx];
 			}
