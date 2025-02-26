@@ -10,7 +10,7 @@ public class Main {
 	public static void dfs(int start) {
 		visit[start] = true;
 		cnt++;
-		for(int i=0;i<N;i++) {
+		for(int i=1;i<=N;i++) {
 			if(start!=i&&!visit[i]&&matrix[start][i]==1) {
 				dfs(i);
 			}
@@ -37,6 +37,6 @@ public class Main {
 		}
 		
 		dfs(1);
-		System.out.println(cnt);
+		System.out.println(cnt-1);
 	}
 }
