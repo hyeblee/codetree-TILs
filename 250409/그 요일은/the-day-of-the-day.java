@@ -37,7 +37,12 @@ public class Main {
       m1++;
     }
     int diff = getDay(m2, d2) - getDay(m1, d1);
-    System.out.println(diff / 7 + 1);
+    if(diff<0){
+      System.out.println(0);
+      return;
+    }
+    diff /= 7;
+    System.out.println(diff+1);
 
   }
 }
