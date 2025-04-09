@@ -20,6 +20,9 @@ public class Main {
       A--;
     }
     minute += A * 24 * 60;
+    if (minute < 0) {
+      minute = -1;
+    }
     System.out.println(minute);
   }
 }
