@@ -31,18 +31,14 @@ public class Main {
         break;
       }
     }
-    d1 += n;
-    if (d1 > endOfMonth[m1]) {
-      d1 -= endOfMonth[m1];
-      m1++;
-    }
     int diff = getDay(m2, d2) - getDay(m1, d1);
-    if(diff<0){
-      System.out.println(0);
-      return;
+    int count = 0;
+    for(int i=n;i<=diff;i++){
+      if(i%7==n)
+        count++;
     }
-    diff /= 7;
-    System.out.println(diff+1);
+    
+    System.out.println(count);
 
   }
 }
