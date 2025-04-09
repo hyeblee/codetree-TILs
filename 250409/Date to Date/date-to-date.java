@@ -15,6 +15,7 @@ public class Main {
         return elapsedDays;
       }
       day++;
+      elapsedDays++;
       if (day > endOfMonth[month]) {
         month++;
         day = 1;
