@@ -3,6 +3,7 @@ import java.util.*;
 
 
 public class Main {
+
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
@@ -12,19 +13,34 @@ public class Main {
     for (int i = 0; i < N; i++) {
       int x = sc.nextInt();
       char dir = sc.next().charAt(0);
-      if(dir == 'L'){
-        cur-=x;
-      } else if(dir == 'R'){
-        cur+=x;
+      if (dir == 'L') {
+        for (int j = cur - x; j <= cur; j++) {
+          arr[j]++;
+        }
+        cur -= x;
+      } else if (dir == 'R') {
+        for (int j = cur; j <= cur + x; j++) {
+          arr[j]++;
+        }
+        cur += x;
       }
-      arr[cur]++;
     }
-    int cnt = 0;
-    for (int i = 0; i < 2000; i++) {
-      if(arr[i] >0){
-        cnt++;
+
+      int cnt = 0;
+      for (int i = 0; i < 2001; ) {
+        if (arr[i] > 0) {
+//          System.out.println(i - 1000);
+          cnt++;
+          i++;
+          while (arr[i] > 1 && i < 2001) {
+//            System.out.println(i - 1000 + " " + arr[i]);
+
+            i++;
+          }
+        } else {
+          i++;
+        }
       }
+      System.out.println(cnt);
     }
-    System.out.println(cnt);
   }
-}
