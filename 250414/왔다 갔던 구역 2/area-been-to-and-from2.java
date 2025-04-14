@@ -14,33 +14,26 @@ public class Main {
       int x = sc.nextInt();
       char dir = sc.next().charAt(0);
       if (dir == 'L') {
-        for (int j = cur - x; j <= cur; j++) {
+        for (int j = cur - x; j < cur; j++) {
           arr[j]++;
         }
         cur -= x;
       } else if (dir == 'R') {
-        for (int j = cur; j <= cur + x; j++) {
+        for (int j = cur; j < cur + x; j++) {
           arr[j]++;
         }
         cur += x;
       }
     }
 
-      int cnt = 0;
-      for (int i = 0; i < 2001; ) {
-        if (arr[i] > 0) {
+    int cnt = 0;
+    for (int i = 0; i < 2001; i++) {
+      if (arr[i] >= 2) {
 //          System.out.println(i - 1000);
-          cnt++;
-          i++;
-          while (arr[i] > 1 && i < 2001) {
-//            System.out.println(i - 1000 + " " + arr[i]);
+        cnt++;
 
-            i++;
-          }
-        } else {
-          i++;
-        }
       }
-      System.out.println(cnt);
     }
+    System.out.println(cnt);
   }
+}
