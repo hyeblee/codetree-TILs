@@ -21,7 +21,7 @@ public class Main {
       decimal = decimal/B;
       if(decimal==0) break;
     }
-    return sb.toString();
+    return sb.reverse().toString();
   }
 
 
