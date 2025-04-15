@@ -27,7 +27,7 @@ public class Main {
       y1[i] = sc.nextInt();
       x2[i] = sc.nextInt();
       y2[i] = sc.nextInt();
-      makeRectangle(x1[i], y1[i], x2[i], y2[i]);
+      makeRectangle(x1[i]+100, y1[i]+100, x2[i]+100, y2[i]+100);
     }
     int size = 0;
     for (int i = 0; i <= 200; i++) {
