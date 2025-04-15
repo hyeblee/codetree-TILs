@@ -61,7 +61,7 @@ public class Main {
     int white = 0;
     int black = 0;
     int grey = 0;
-    for (int i = 0; i < 100001; i++) {
+    for (int i = 0; i < 1000010; i++) {
       if (tiles[i].w >= 2 && tiles[i].b >= 2) {
         grey++;
       } else if (tiles[i].cur == 'w') {
