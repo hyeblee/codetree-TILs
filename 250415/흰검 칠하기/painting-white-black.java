@@ -44,7 +44,7 @@ public class Main {
       tiles[i] = new Tile();
     }
 
-    int cur = 500000;
+    int cur = 50000;
 
     for (int i = 0; i < N; i++) {
       int x = sc.nextInt();
@@ -54,14 +54,14 @@ public class Main {
         cur += x - 1;
       } else if (ch == 'L') {
         paintWhite(cur - x + 1, cur);
-        cur -= x - 1;
+        cur -= x - 1
       }
     }
 
     int white = 0;
     int black = 0;
     int grey = 0;
-    for (int i = 0; i < 100001; i++) {
+    for (int i = 0; i < 1000010; i++) {
       if (tiles[i].w >= 2 && tiles[i].b >= 2) {
         grey++;
       } else if (tiles[i].cur == 'w') {
