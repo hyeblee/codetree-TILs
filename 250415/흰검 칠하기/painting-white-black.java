@@ -44,7 +44,7 @@ public class Main {
       tiles[i] = new Tile();
     }
 
-    int cur = 50000;
+    int cur = 500000;
 
     for (int i = 0; i < N; i++) {
       int x = sc.nextInt();
@@ -73,3 +73,4 @@ public class Main {
     System.out.println(white + " " + black + " " + grey);
   }
 }
+
