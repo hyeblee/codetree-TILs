@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
   public static int N;
-  public static Tile[] tiles = new Tile[1000011];
+  public static Tile[] tiles = new Tile[1000010];
 
   public static class Tile {
 
@@ -40,7 +40,7 @@ public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     N = sc.nextInt();
-    for (int i = 0; i < 1000011; i++) {
+    for (int i = 0; i < 1000010; i++) {
       tiles[i] = new Tile();
     }
 
@@ -61,7 +61,7 @@ public class Main {
     int white = 0;
     int black = 0;
     int grey = 0;
-    for (int i = 0; i < 1000011; i++) {
+    for (int i = 0; i < 100001; i++) {
       if (tiles[i].w >= 2 && tiles[i].b >= 2) {
         grey++;
       } else if (tiles[i].cur == 'w') {
