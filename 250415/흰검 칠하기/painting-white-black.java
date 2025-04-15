@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
   public static int N;
-  public static Tile[] tiles = new Tile[100001];
+  public static Tile[] tiles = new Tile[100002];
 
   public static class Tile {
 
