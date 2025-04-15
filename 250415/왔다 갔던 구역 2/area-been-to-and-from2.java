@@ -15,7 +15,7 @@ public class Main {
         result[i]++;
       }
     } else {
-      for (int i = cur; i > cur + x; i--) {
+      for (int i = cur -1; i >= cur + x; i--) {
         result[i]++;
       }
     }
