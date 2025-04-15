@@ -54,7 +54,7 @@ public class Main {
         cur += x - 1;
       } else if (ch == 'L') {
         paintWhite(cur - x + 1, cur);
-        cur -= x - 1
+        cur -= x - 1;
       }
     }
 
