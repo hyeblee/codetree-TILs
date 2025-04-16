@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-
+// 1,3을 가로로 하는 직사각형을 만들려면 1,2만 기록하면 된다.
 public class Main {
 
   public static final int MAX_SIZE = 1000;
