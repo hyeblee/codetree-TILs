@@ -2,7 +2,7 @@ import java.util.*;
 
 
 public class Main {
-
+  // n칸 움직이면, 현재 좌표에서 n-1을 움직여주면 된당.
   public static final int MAX_SIZE = 100000;
 
   public static Tile[] tiles = new Tile[MAX_SIZE * 2 + 1];
