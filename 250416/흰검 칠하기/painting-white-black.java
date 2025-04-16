@@ -41,13 +41,14 @@ public class Main {
     int cur = MAX_SIZE;
     for (int i = 0; i < N; i++) {
       int x = sc.nextInt();
+      x--;
       char ch = sc.next().charAt(0);
       if (ch == 'L') {
-        paintWhite(cur - x + 1, cur);
-        cur -= x - 1;
+        paintWhite(cur - x, cur);
+        cur -= x;
       } else if (ch == 'R') {
-        paintBlack(cur, cur + x - 1);
-        cur += x - 1;
+        paintBlack(cur, cur + x);
+        cur += x;
       }
     }
     int w = 0;
