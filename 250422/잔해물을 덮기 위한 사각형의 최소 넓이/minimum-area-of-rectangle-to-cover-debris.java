@@ -36,7 +36,6 @@ public class Main {
         }
       }
     }
-//    System.out.println(colS+" "+rowS+"-- "+colE+" "+rowE);
     return (rowE-rowS)*(colE-colS);
   }
 
@@ -51,7 +50,10 @@ public class Main {
     int rect2_y1 = sc.nextInt()+MAX_SIZE;
     int rect2_x2 = sc.nextInt()+MAX_SIZE;
     int rect2_y2 = sc.nextInt()+MAX_SIZE;
-
+    if(rect1_x1<=rect2_x2 && rect1_y1<=rect2_y2 && rect1_x2<=rect2_x1 && rect1_y2<=rect2_y1) {
+      System.out.println("0");
+      return;
+    }
     makeRectangle(rect1_x1, rect1_y1, rect1_x2, rect1_y2);
     eraseRectangle(rect2_x1, rect2_y1, rect2_x2, rect2_y2);
     int result = getMinSize(rect1_x1, rect1_y1, rect1_x2, rect1_y2);
