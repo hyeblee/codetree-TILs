@@ -50,7 +50,7 @@ public class Main {
     int rect2_y1 = sc.nextInt()+MAX_SIZE;
     int rect2_x2 = sc.nextInt()+MAX_SIZE;
     int rect2_y2 = sc.nextInt()+MAX_SIZE;
-    if(rect1_x1>=rect2_x1 && rect1_x2<=rect2_x2&&rect1_y1<=rect2_y1 && rect1_y2>=rect2_y2) {
+    if(rect2_x1<=rect1_x1&&rect1_x2<=rect2_x2&&rect2_y1<=rect1_y1&&rect1_y2<=rect2_y2) {
       System.out.println("0");
       return;
     }
