@@ -6,16 +6,16 @@ public class Main {
   public static int[][] grid = new int[MAX_SIZE * 2 + 1][MAX_SIZE * 2 + 1];
 
   public static void makeRectangle(int x1, int y1, int x2, int y2) {
-    for (int i = y1; i <= y2; i++) {
-      for (int j = x1; j <= x2; j++) {
+    for (int i = y1; i < y2; i++) {
+      for (int j = x1; j < x2; j++) {
         grid[i][j] = 1;
       }
     }
   }
 
   public static void eraseRectangle(int x1, int y1, int x2, int y2) {
-    for (int i = y1; i <= y2; i++) {
-      for (int j = x1; j <= x2; j++) {
+    for (int i = y1; i < y2; i++) {
+      for (int j = x1; j < x2; j++) {
         grid[i][j] = 0;
       }
     }
