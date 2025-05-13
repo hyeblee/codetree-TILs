@@ -40,7 +40,14 @@ public class Main {
         }
       }
     }
-    return (rowE - rowS) * (colE - colS);
+
+    // System.out.println(rowS-1000);
+    // System.out.println(rowE-1000);
+
+
+    // System.out.println(colS-1000);
+    // System.out.println(colE-1000);
+    return (rowE - rowS + 1) * (colE - colS + 1);
   }
 
   public static void main(String[] args) {
@@ -68,3 +75,4 @@ public class Main {
     System.out.println(result);
   }
 }
+
