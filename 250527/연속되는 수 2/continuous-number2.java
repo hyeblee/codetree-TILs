@@ -18,10 +18,12 @@ public class Main {
             if(i==0 || arr[i-1]!=arr[i]){
                 maxCnt = Math.max(maxCnt, cnt);
                 cnt = 1;
-                continue;
+            } else {
+                cnt++;
             }
-            cnt++;
         }
+                        
+        maxCnt = Math.max(maxCnt, cnt);
         System.out.println(maxCnt);
     }
 }
