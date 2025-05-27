@@ -16,14 +16,14 @@ public class Main {
         int maxCnt = 1;
         for(int i=0;i<n;i++){
             if(i==0 || arr[i-1]!=arr[i]){
-                maxCnt = Math.max(maxCnt, cnt);
                 cnt = 1;
             } else {
                 cnt++;
             }
+                            
+            maxCnt = Math.max(maxCnt, cnt);
         }
-                        
-        maxCnt = Math.max(maxCnt, cnt);
+        
         System.out.println(maxCnt);
     }
 }
