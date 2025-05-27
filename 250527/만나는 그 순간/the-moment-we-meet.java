@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.*;
 public class Main {
     public static final int MAX_SIZE = 1000 * 1000;
 
@@ -32,10 +32,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-        
+        int maxT = 0;
         for(int i=0;i<n;i++){
             char dir = sc.next().charAt(0);
             int t = sc.nextInt();
+            maxT += t;
             if(dir=='L'){
                 goLeft(a, curA, timeA, t);
                 curA -= t;
@@ -45,7 +46,7 @@ public class Main {
                 curA += t;
                 timeA += t;
             }
-            // System.out.println(curA);
+            // System.out.println("A: "+curA);
         }
 
          for(int i=0;i<m;i++){
@@ -62,8 +63,9 @@ public class Main {
             }
             // System.out.println(curB);
         }
-        
-        for(int i=1;i<=MAX_SIZE;i++){
+        // System.out.println(Arrays.toString(a));
+        // System.out.println(Arrays.toString(b));
+        for(int i=1;i<=maxT+1;i++){
             if(a[i]==b[i]){
                 System.out.println(i);
                 return;
