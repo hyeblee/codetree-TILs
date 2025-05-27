@@ -13,11 +13,14 @@ public class Main {
             arr[i] = Integer.parseInt(br.readLine());
         }
         int cnt = 0;
+        int maxCnt = 0;
         for(int i=0;i<n;i++){
             if(i==0 || arr[i-1]!=arr[i]){
-                cnt++;
+                maxCnt = Math.max(maxCnt, cnt);
+                cnt = 0;
             }
+            cnt++;
         }
-        System.out.println(cnt);
+        System.out.println(maxCnt);
     }
 }
