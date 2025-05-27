@@ -65,7 +65,7 @@ public class Main {
         }
         // System.out.println(Arrays.toString(a));
         // System.out.println(Arrays.toString(b));
-        for(int i=1;i<=maxT+1;i++){
+        for(int i=1;i<=maxT;i++){
             if(a[i]==b[i]){
                 System.out.println(i);
                 return;
