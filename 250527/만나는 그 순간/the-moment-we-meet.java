@@ -27,10 +27,6 @@ public class Main {
         }
     }
 
-    
-    public static void goLeft(int[] arr, int cur, int t) {
-        
-    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -49,7 +45,7 @@ public class Main {
                 curA += t;
                 timeA += t;
             }
-            System.out.println(curA);
+            // System.out.println(curA);
         }
 
          for(int i=0;i<m;i++){
@@ -64,7 +60,7 @@ public class Main {
                 curB += t;
                 timeB += t;
             }
-            System.out.println(curB);
+            // System.out.println(curB);
         }
         
         for(int i=1;i<=MAX_SIZE;i++){
