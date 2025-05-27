@@ -12,12 +12,13 @@ public class Main {
         for(int i=0;i<n;i++){
             arr[i] = Integer.parseInt(br.readLine());
         }
-        int cnt = 0;
-        int maxCnt = 0;
+        int cnt = 1;
+        int maxCnt = 1;
         for(int i=0;i<n;i++){
             if(i==0 || arr[i-1]!=arr[i]){
                 maxCnt = Math.max(maxCnt, cnt);
-                cnt = 0;
+                cnt = 1;
+                continue;
             }
             cnt++;
         }
