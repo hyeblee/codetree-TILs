@@ -49,7 +49,7 @@ public class Main {
                 curA += t;
                 timeA += t;
             }
-            // System.out.println(curA);
+            System.out.println(curA);
         }
 
          for(int i=0;i<m;i++){
@@ -64,8 +64,9 @@ public class Main {
                 curB += t;
                 timeB += t;
             }
+            System.out.println(curB);
         }
-
+        
         for(int i=1;i<=MAX_SIZE;i++){
             if(a[i]==b[i]){
                 System.out.println(i);
