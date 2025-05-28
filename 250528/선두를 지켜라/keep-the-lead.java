@@ -31,17 +31,21 @@ public class Main {
             }
         }
 
-        boolean isA; // 같은걸로 시작하면...?
-        boolean isFirst = true;
 
         int cnt = 0;
+        int cur = 0; // 1이면 a, 2이면 b
         for(int i=1;i<curB;i++) {
-           if (a[i]>b[i] && a[i-1]<b[i-1] || a[i]<b[i] && a[i-1]>b[i-1]){
-            cnt++;
-           }
+            if (a[i] < b[i] && cur != 2){
+                cur = 2;
+                cnt++;
+            }
+            else if (a[i] > b[i] && cur != 1){
+                cur = 1;
+                cnt++;
+            } 
         }
 
-        System.out.println(cnt);
+        System.out.println(cnt-1);
 
     }
 }
