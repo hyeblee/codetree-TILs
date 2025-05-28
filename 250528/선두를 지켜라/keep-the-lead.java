@@ -32,20 +32,23 @@ public class Main {
         }
 
 
-        int cnt = 0;
-        int cur = 0; // 1이면 a, 2이면 b
-        for(int i=1;i<curB;i++) {
-            if (a[i] < b[i] && cur != 2){
-                cur = 2;
+       int cur = 0; // 1이면 A, 2이면 B
+       int cnt = 0;
+
+       for(int i=1;i<curB;i++) {
+        if(a[i]>b[i]){ // a가 더 큰 경우
+            if(cur == 2) { // 이전이 b였으면
+                cnt++; // 횟수세기
+            }
+            cur = 1; // a가 더 크다고 바꿈
+        } else if(a[i]<b[i]){
+            if(cur == 1) {
                 cnt++;
             }
-            else if (a[i] > b[i] && cur != 1){
-                cur = 1;
-                cnt++;
-            } 
+            cur = 2;
         }
+       }
 
-        System.out.println(cnt-1);
-
+        System.out.println(cnt);
     }
 }
