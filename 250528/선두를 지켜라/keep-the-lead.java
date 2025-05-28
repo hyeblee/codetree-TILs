@@ -31,16 +31,14 @@ public class Main {
             }
         }
 
-        boolean isA = a[1] > b[1] ? true: false;
+        boolean isA; // 같은걸로 시작하면...?
+        boolean isFirst = true;
+
         int cnt = 0;
-        for(int i=2;i<curB;i++) {
-            if(isA && a[i] < b[i]) { // A가 앞이었는데 b가 더 커진 경우
-                isA = false;
-                cnt++;
-            } else if(!isA && a[i] > b[i]) { // B가 앞이었는데 a가 더 커진 경우
-                isA = true;
-                cnt++;
-            }
+        for(int i=1;i<curB;i++) {
+           if (a[i]>b[i] && a[i-1]<b[i-1] || a[i]<b[i] && a[i-1]>b[i-1]){
+            cnt++;
+           }
         }
 
         System.out.println(cnt);
