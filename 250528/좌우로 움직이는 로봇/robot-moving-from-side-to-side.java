@@ -25,9 +25,8 @@ public class Main {
                 curA++;
             }
         }
-
         int curB = 1;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < m; i++) {
             int t = sc.nextInt();
             char d = sc.next().charAt(0);
             // Please write your code here.
@@ -41,7 +40,8 @@ public class Main {
             }
         }
         
-        int maxT;
+        // System.out.println(curA + ", " + curB);
+        int maxT = Math.max(curA, curB);
 
         if (curA > curB) {
             // b의 나머지 배열 curA까지 채워주기
@@ -49,20 +49,19 @@ public class Main {
             for(int i=curB;i<curA;i++){
                 b[i] = last;
             }
-            maxT = curA;
-        } else {
+        } else if (curA < curB) {
              // a의 나머지 배열 curB까지 채워주기
             int last = a[curA-1];
             for(int i=curA;i<curB;i++){
                 a[i] = last;
             }
-            maxT = curB;
         }
 
       
         // 바로 직전에 다른 위치에 있다가 같아지는 횟수 구하기
         int cnt = 0;
-        for(int i=1; i<=maxT; i++){
+        for(int i=1; i<maxT; i++){
+            // System.out.println(a[i] + ", " + b[i]);
             if(a[i]==b[i] && a[i-1]!=b[i-1]){
                 cnt++;
             }
