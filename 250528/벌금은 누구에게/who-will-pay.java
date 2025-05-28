@@ -11,10 +11,6 @@ public class Main {
         
         for (int i = 0; i < m; i++) {
             penalizedPerson[i] = sc.nextInt();
-            penalizedCnt[penalizedPerson[i]]++;
-            if(penalizedCnt[penalizedPerson[i]] >= k){
-                break;
-            }
         }
         int result = -1;
          for (int i = 0; i < m; i++) {
