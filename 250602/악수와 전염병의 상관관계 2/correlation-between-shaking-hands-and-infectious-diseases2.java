@@ -20,8 +20,8 @@ public class Main {
         int T = sc.nextInt();
         result = new int[N+1];
         isInfected = new int[N+1];
-        result[T] = K;
-        isInfected[T] = 1;
+        result[P] = K;
+        isInfected[P] = 1;
         int[][] shakes = new int[T][3];
         for (int i = 0; i < T; i++) { // t초에 x개발자와 y개발자가 악수 
             shakes[i][0] = sc.nextInt(); 
@@ -31,9 +31,11 @@ public class Main {
 
         Arrays.sort(shakes, new myComparator());
     
+            // System.out.println(Arrays.toString(result));
         for(int i=0;i<T;i++) {
             int x = shakes[i][1];
             int y = shakes[i][2];
+            // System.out.println(Arrays.toString(result));
 
             if (result[x] > 0) {
                 result[x]--;
@@ -49,10 +51,12 @@ public class Main {
                     result[x] = K;
                     isInfected[x] = 1;
                 }
-            } 
+            }
         }
 
         // Arrays.stream(shakes).map(Arrays::toString).forEach(System.out::println); // 메서드 참조(람다 표현식 간략하게)
-        Arrays.stream(isInfected).forEach(i -> System.out.print(i));
+        for (int i=1;i<=N;i++){
+            System.out.print(isInfected[i]);
+        }
     }
 }
