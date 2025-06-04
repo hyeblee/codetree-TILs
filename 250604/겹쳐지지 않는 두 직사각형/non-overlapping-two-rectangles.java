@@ -33,7 +33,7 @@ public class Main {
                             for(int b=1;b<=m;b++) {
                                 for(int c=a;c<=n;c++) {
                                     for(int d=b;d<=m;d++) {
-                                        if (i<=a&&a<=k && j<=b&&b<=l || a<=k && b<=l) // 겹치면 cotinue;
+                                        if (a <= k && b <= l) // 겹치면 cotinue;
                                             continue;
                                         int sum = getSum(i,j,k,l);
                                         sum += getSum(a,b,c,d);
