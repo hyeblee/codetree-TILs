@@ -33,7 +33,7 @@ public class Main {
                             for(int b=1;b<=m;b++) {
                                 for(int c=a;c<=n;c++) {
                                     for(int d=b;d<=m;d++) {
-                                        if (a <= k && b <= l) // 겹치면 cotinue;
+                                        if (a <= k && b <= l) // rect2의 시작점이 rect1보다 무조건 커야한다.
                                             continue;
                                         int sum = getSum(i,j,k,l);
                                         sum += getSum(a,b,c,d);
@@ -48,18 +48,6 @@ public class Main {
                 }
             }
         }
-
-        // for(int i=1;i<=n;i++) {
-        //     for(int j=1;j<=m;j++) {
-        //         for(int k=i;k<=n;k++) {
-        //             for(int l=j;l<=m;l++) {
-        //                 for(int a=+1;i<=n;i++) {
-        //                     for(int b=)
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
 
         System.out.println(max);
     }
