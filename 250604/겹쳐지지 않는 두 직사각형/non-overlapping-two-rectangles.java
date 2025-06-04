@@ -29,14 +29,16 @@ public class Main {
             for (int j = 1; j <= m; j++) {
                 for(int k=i;k<=n;k++) {
                     for(int l=j;l<=m;l++) {
-                        for(int a=i;a<=n;a++) {
-                            for(int b=j;b<=m;b++) {
+                        for(int a=1;a<=n;a++) {
+                            for(int b=1;b<=m;b++) {
                                 for(int c=a;c<=n;c++) {
                                     for(int d=b;d<=m;d++) {
-                                        if (i<=a&&a<=k && j<=b&&b<=l)
+                                        if (i<=a&&a<=k && j<=b&&b<=l || a<=k && b<=l) // 겹치면 cotinue;
                                             continue;
                                         int sum = getSum(i,j,k,l);
                                         sum += getSum(a,b,c,d);
+                                        // if (sum > max)
+                                        //     System.out.printf("%d: %d %d %d %d, %d %d %d %d\n",sum,i,j,k,l,a,b,c,d);
                                         max = Math.max(max, sum);
                                     }
                                 }
