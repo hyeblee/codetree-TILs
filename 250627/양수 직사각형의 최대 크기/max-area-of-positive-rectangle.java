@@ -40,6 +40,10 @@ public class Main {
                 }
             }
         }
+        if(max==0){
+            System.out.println("-1");
+            return;
+        }
 
         System.out.println(max);
     }
