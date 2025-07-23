@@ -9,7 +9,6 @@ public class Main {
 
     public static void getMax(int depth) {
         if (depth==n){
-
             max = Math.max(cnt, max);
             return;
         }
@@ -18,20 +17,18 @@ public class Main {
         for(int i=segments[depth][0];i<=segments[depth][1];i++){
             if (isSelected[i]){
                 canSelect = false;
-                return;
+                break;
             }
         }
         // System.out.println(canSelect+": "+ depth);
         if (canSelect) {
             cnt++;
-            isSelected[depth] = true;
             for(int i=segments[depth][0];i<=segments[depth][1];i++){
                 isSelected[i] = true;
             }       
             getMax(depth+1);
             
             cnt--;
-            isSelected[depth] = false;
             for(int i=segments[depth][0];i<=segments[depth][1];i++){
                 isSelected[i] = false;
             }
