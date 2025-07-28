@@ -1,7 +1,7 @@
 import java.util.*;
 public class Main {
     public static int[] dx = {0,1};
-    public static int[] dy = {-1,0};
+    public static int[] dy = {+1,0};
     public static int n, m;
     public static int[][] grid;
     public static boolean[][] visited;
