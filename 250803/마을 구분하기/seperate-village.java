@@ -49,8 +49,7 @@ public class Main {
                     people = 0;
                     town++;
                     dfs(i,j);
-                    int tmp = people;
-                    list.add(tmp);
+                    list.add(people);
                 }
             }
         }
