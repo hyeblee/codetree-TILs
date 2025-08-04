@@ -10,7 +10,7 @@ public class Main {
     
     public static int safeArea = 0;
     public static int maxSafeArea = 0;
-    public static int maxK = 0;
+    public static int maxK = 1;
 
     public static boolean inRange(int y, int x) {
         return 0<=y && y < n && 0<= x && x<m;
