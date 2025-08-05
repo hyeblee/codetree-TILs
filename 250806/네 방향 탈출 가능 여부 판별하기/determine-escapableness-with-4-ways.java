@@ -43,7 +43,7 @@ public class Main {
                 if (!inRange(curY, curX)|| grid[curY][curX]==0)
                     continue;
                 if (grid[curY][curX]!=-1) {
-                    grid[cur.y][cur.x] = -1;
+                    grid[curY][curX] = -1;
                     queue.offer(new Node(curY, curX));
                 }
             }
