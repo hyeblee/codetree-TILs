@@ -2,8 +2,8 @@ import java.util.Scanner;
 import java.util.*;
 
 public class Main {
-    public static int[] dx = {0,1,0,-1};
-    public static int[] dy = {-1,0,1,0};
+    public static int[] dx = {1,0};
+    public static int[] dy = {0,1};
     
     public static int n, m;
     public static int[][] grid;
@@ -37,7 +37,7 @@ public class Main {
 
             grid[cur.y][cur.x] = -1;
             
-            for (int i=0;i<4;i++) {
+            for (int i=0;i<2;i++) {
                 int curY = cur.y+dy[i];
                 int curX = cur.x+dx[i];
                 if (!inRange(curY, curX)|| grid[curY][curX]==0)
