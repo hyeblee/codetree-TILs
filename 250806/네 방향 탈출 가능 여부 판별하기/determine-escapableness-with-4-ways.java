@@ -1,9 +1,10 @@
 import java.util.Scanner;
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static int[] dx = {1,0};
-    public static int[] dy = {0,1};
+    public static int[] dx = {0,1,0,-1};
+    public static int[] dy = {-1,0,1,0};
     
     public static int n, m;
     public static int[][] grid;
@@ -37,7 +38,7 @@ public class Main {
 
             grid[cur.y][cur.x] = -1;
             
-            for (int i=0;i<2;i++) {
+            for (int i=0;i<4;i++) {
                 int curY = cur.y+dy[i];
                 int curX = cur.x+dx[i];
                 if (!inRange(curY, curX)|| grid[curY][curX]==0)
@@ -49,15 +50,18 @@ public class Main {
 
     }
     
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        m = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
         grid = new int[n][m];
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
+            st = new StringTokenizer(br.readLine());
             for (int j = 0; j < m; j++)
-                grid[i][j] = sc.nextInt();
+                grid[i][j] = Integer.parseInt(st.nextToken());
+        }
         // Please write your code here.
         BFS(0,0);
         System.out.println(canEscape);
