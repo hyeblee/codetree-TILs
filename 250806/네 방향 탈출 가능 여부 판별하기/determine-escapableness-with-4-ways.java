@@ -36,15 +36,16 @@ public class Main {
                 return;
             }            
 
-            grid[cur.y][cur.x] = -1;
             
             for (int i=0;i<4;i++) {
                 int curY = cur.y+dy[i];
                 int curX = cur.x+dx[i];
                 if (!inRange(curY, curX)|| grid[curY][curX]==0)
                     continue;
-                if (grid[curY][curX]!=-1)
+                if (grid[curY][curX]!=-1) {
+                    grid[cur.y][cur.x] = -1;
                     queue.offer(new Node(curY, curX));
+                }
             }
         }
 
