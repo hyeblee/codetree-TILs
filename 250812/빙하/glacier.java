@@ -148,7 +148,7 @@ public class Main {
                 }
             }
         }
-        if (ices.size == 0) {
+        if (ices.size() == 0) {
             System.out.println("0 0");
             return;
         }
