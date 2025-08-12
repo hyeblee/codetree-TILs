@@ -28,8 +28,10 @@ public class Main {
     public static int n, m;
 
     public static int[][] grid; 
+    public static boolean[][] notBlockWater;
+
     // public static int[][] nextGrid;
-    // public static boolean[][] visited;
+    public static boolean[][] visited;
 
     public static List<Pair> ices = new ArrayList<>();
     public static List<Pair> nextIces = new ArrayList<>();
@@ -47,19 +49,48 @@ public class Main {
         return 0<=y&&y<n && 0<=x&&x<m;
     }
 
-    public static boolean isSurroundedByOne(int y, int x) {
-        
-        for(int i=0;i<4;i++) {
-            int ny = y + dy[i];
-            int nx = x + dx[i];
+    public static boolean isNotBlock(int y, int x) {
+        if (notBlockWater[y][x]) {
+            return true;
+        }
 
-            if (inRange(ny, nx) && grid[ny][nx] == 0) {
-                return false;
+        // 테두리면 뚫린 물이다.
+        if (y==0 || x==0 || y==n-1 || x==m-1) {
+            notBlockWater[y][x] = true;
+            return true;
+        }
+
+        Queue<Pair> queue = new ArrayDeque<>();
+        visited = new boolean[n][m];
+
+        queue.offer(new Pair(y, x));
+        visited[y][x] = true;
+
+        while (!queue.isEmpty()) {
+            Pair cur = queue.poll();
+
+            for(int i=0;i<4;i++) {
+                int ny = cur.y + dy[i];
+                int nx = cur.x + dx[i];
+                
+                if (!inRange(ny, nx) || visited[ny][nx] || grid[ny][nx]==1) {
+                    continue;
+                }
+
+                if (notBlockWater[ny][nx]) {
+                    notBlockWater[y][x] = true;
+                    return true;
+                }
+
+                if (grid[ny][nx] == 0) { // 막힌 물이면 다음 탐색.
+                    queue.offer(new Pair(ny, nx));
+                    visited[ny][nx] = true;
+                }
             }
         }
 
-        return true;
-    
+        return false;
+
     }
 
     public static boolean canMelt(int y, int x) {
@@ -68,7 +99,10 @@ public class Main {
             int ny = y + dy[i];
             int nx = x + dx[i];
 
-            if (inRange(ny, nx) && grid[ny][nx] == 0 && !isSurroundedByOne(ny, nx)) {
+            // 상하좌우에 물이 있고, 그 물이 뚫려있으면 탐색 가능.
+            // 막혀있는 물을 기록하기
+            // 상하좌우에 물이 있고, 그 물이 뚫려있는 물이면 탐색 가능.
+            if (inRange(ny, nx) && grid[ny][nx] == 0 && isNotBlock(ny, nx)) {
                 return true;
             }
         }
@@ -83,6 +117,7 @@ public class Main {
         nextIces = new ArrayList<>();
         for(Pair ice: ices) {
             if (canMelt(ice.y, ice.x)) {
+                notBlockWater[ice.y][ice.x] = true;
                 continue;
             }
             // System.out.println(ice);
@@ -92,6 +127,7 @@ public class Main {
         // System.out.println(nextIces.toString());
         if (nextIces.size()==0) {
             lastSize = ices.size();
+            // System.out.println(ices);
             return;
         }
 
@@ -110,6 +146,7 @@ public class Main {
         n = sc.nextInt();
         m = sc.nextInt();
         grid = new int[n][m];
+        notBlockWater = new boolean[n][m];
         
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
