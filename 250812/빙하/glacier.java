@@ -85,7 +85,7 @@ public class Main {
             if (canMelt(ice.y, ice.x)) {
                 continue;
             }
-            System.out.println(ice);
+            // System.out.println(ice);
             nextIces.add(ice);
         }
         
@@ -95,7 +95,13 @@ public class Main {
             return;
         }
 
+        // 녹은 얼음으로 grid를 다시 그립니다.
         ices = nextIces;
+        grid = new int[n][m];
+        for(Pair p: ices) {
+           grid[p.y][p.x] = 1; 
+        }
+
         meltIcePerSecond();
     }
 
