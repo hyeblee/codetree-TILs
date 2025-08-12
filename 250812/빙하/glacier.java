@@ -132,12 +132,21 @@ public class Main {
         }
 
         // 녹은 얼음으로 grid를 다시 그립니다.
-        ices = nextIces;
-        grid = new int[n][m];
         for(Pair p: ices) {
-           grid[p.y][p.x] = 1; 
+            boolean has = false;
+            for(Pair n: nextIces) {
+                if (n.y==p.y && n.x==p.x) {
+                    has = true;
+                    break;
+                }
+            }
+
+            if (!has) {
+                grid[p.y][p.x] = 0;
+            }
         }
 
+        ices = nextIces;
         meltIcePerSecond();
     }
 
