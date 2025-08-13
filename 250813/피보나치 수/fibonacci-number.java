@@ -6,7 +6,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         // Please write your code here.
-        dp = new int[n+1];
+        dp = new int[n+3];
         dp[1] = 1;
         dp[2] = 1;
         for(int i=3;i<=n;i++) {
