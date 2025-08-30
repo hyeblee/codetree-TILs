@@ -29,20 +29,6 @@ public class Main {
                     continue;
                 } 
                 result.add(i);
-                result.add(i);
-                chooseN(depth+1);
-                result.remove(result.size()-1);
-            \}
-        \}
-
-    \} 
-    // public static 
-    // public static 
-    // public static 
-
-212public class Main {    public static void chooseN(int depth) {
-
-$0
                 chooseN(depth+1);
                 result.remove(result.size()-1);
             }
