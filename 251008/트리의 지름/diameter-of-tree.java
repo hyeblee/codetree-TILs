@@ -1,86 +1,83 @@
 import java.util.*;
 import java.io.*;
 
+class Edge {
+    int to, weight;
 
-// 트리의 지름 구하기
-// 임의의 정점에서 제일 먼 정점 x구하기
-// x에서 제일 먼 정점(p)까지의 거리가 트리의 지름
+    public Edge (int to, int weight) {
+        this.to = to;
+        this.weight = weight;
+    }
+}
 
 public class Main {
     public static int n;
-    public static int x = 1;
-    public static int d = 0; // dfs 탐색 때 쓸 누적 거리
-    public static int r = 0; // 최대 누적 거리
-
-    public static class Edge {
-        int to;
-        int weight;
-
-        public Edge(int to, int weight) {
-            this.to = to;
-            this.weight = weight;
-        }
-    }
-
-    public static List<Edge>[] tree;
+    public static ArrayList<Edge>[] edges;
     public static boolean[] visited;
-    
-    // start에서 출발하여 제일 먼 정점을 x로 갱신한다.
-    // 그 거리를 r로 갱신한다.
-    public static void dfs(int start) {
+    public static int[] dist; // start에서 i까지 떨어진 거리
+    public static int furthestDist = 0; // start에서 제일 멀리 떨어진 거리
+    public static int furthestVertext = 1; // start에서 제일 멀리 떨어진 정점
 
+    // start로부터 떨어진 거리를 계산하여 dist에 저장한다.
+    public static void dfs(int start, int totalDist) {
         visited[start] = true;
 
-        for(int i=0;i<tree[start].size();i++) {
-            int next = tree[start].get(i).to;
-            
-            if (visited[next]) {
+        for(int i=0;i<edges[start].size();i++) {
+            int to = edges[start].get(i).to;
+            int weight = edges[start].get(i).weight;
+
+            if(visited[to]) { // 방문한 정점은 탐색하지 않는다.
                 continue;
             }
-            
-            int weight = tree[start].get(i).weight;
-            d += weight;
-            if (d > r) {
-                r = d;
-                x = next;
-            }
-            dfs(next);
-            d -= weight;
 
+            dist[to] = totalDist + weight;
+            dfs(to, totalDist + weight);
+        }
+    }
+
+    // 시작점으로부터 제일 멀리 떨어진 정점 찾아준다.
+    public static void findFurthest(int start) {
+
+        Arrays.fill(visited, false);
+        Arrays.fill(dist, 0);
+
+        visited[start] = true;
+        dist[start] = 0;
+        dfs(start, 0);
+
+        furthestDist = 0;
+        furthestVertext = start;
+        for(int i=1;i<=n;i++) {
+            if (dist[i] > furthestDist) {
+                furthestDist = dist[i];
+                furthestVertext = i;
+            }
         }
 
     }
-    // public static 
-    // public static
 
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-
-        n = Integer.parseInt(br.readLine());
-        tree = new List[n+1];
-        for(int i=0;i<n+1;i++) {
-            tree[i] = new ArrayList<>();
-        }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
         visited = new boolean[n+1];
-
+        edges = new ArrayList[n+1];
+        dist = new int[n+1];
+        
+        for(int i=0;i<n+1;i++) {
+            edges[i] = new ArrayList<>();
+        }
         for(int i=0;i<n-1;i++) {
-            st = new StringTokenizer(br.readLine());
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            int w = sc.nextInt();
 
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-            int weight = Integer.parseInt(st.nextToken());
-
-            tree[a].add(new Edge(b, weight));
-            tree[b].add(new Edge(a, weight));    
+            edges[a].add(new Edge(b,w));
+            edges[b].add(new Edge(a,w));
         }
 
-        dfs(1);
-
-        Arrays.fill(visited, false);
-        dfs(x);
-
-        System.out.print(r);
+        findFurthest(1);
+        findFurthest(furthestVertext);
+        System.out.println(furthestDist);
     }
 
 
