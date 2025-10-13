@@ -15,7 +15,9 @@ public class Main {
     }
 
     public static void union(int a, int b) {
-        uf[a] = uf[b];
+        int rootA = find(a);
+        int rootB = find(b);
+        uf[rootA] = rootB;
     }
 
     public static void main(String[] args) {
