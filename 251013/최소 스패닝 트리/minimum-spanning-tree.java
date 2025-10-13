@@ -27,7 +27,12 @@ public class Main {
     public static int[] uf;
 
     public static void union(int a, int b) {
-        uf[a] = uf[b];
+        int rootA = find(a);
+        int rootB = find(b);
+
+        if (rootA != rootB) {
+            uf[a] = rootB;
+        }
     }
 
     public static int find(int x) {
