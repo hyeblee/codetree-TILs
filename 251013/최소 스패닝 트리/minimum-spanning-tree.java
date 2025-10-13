@@ -31,7 +31,7 @@ public class Main {
         int rootB = find(b);
 
         if (rootA != rootB) {
-            uf[a] = rootB;
+            uf[rootA] = rootB;
         }
     }
 
@@ -49,8 +49,8 @@ public class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
         Edge[] edges = new Edge[m];
-        uf = new int[m+1];
-        for(int i=1;i<=m;i++) {
+        uf = new int[n+1];
+        for(int i=1;i<=n;i++) {
             uf[i] = i;
         }
 
