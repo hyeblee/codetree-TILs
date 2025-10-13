@@ -15,7 +15,7 @@ public class Main {
     }
 
     public static void union(int a, int b) {
-        uf[a] = b;
+        uf[a] = uf[b];
     }
 
     public static void main(String[] args) {
@@ -27,6 +27,8 @@ public class Main {
         for(int i=1;i<=n;i++) {
             uf[i] = i;
         }
+
+        StringBuilder sb = new StringBuilder("");
 
         for (int i = 0; i < m; i++) {
             int qType = sc.nextInt();
@@ -40,8 +42,10 @@ public class Main {
                 int rootB = find(b);
 
                 int result = rootA == rootB ? 1 : 0;
-                System.out.println(result);
+                sb.append(result + "\n");
             }
         }
+
+        System.out.println(sb);
     }
 }
