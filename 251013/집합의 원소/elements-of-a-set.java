@@ -9,9 +9,7 @@ public class Main {
             return x;
         }
 
-        int root = find(uf[x]);
-        uf[x] = root;
-        return root;
+        return uf[x] = find(uf[x]); // x의 root의 최종 root를 uf[x]로 업데이트.
     }
 
     public static void union(int a, int b) {
@@ -40,11 +38,10 @@ public class Main {
             if (qType == 0) {
                 union(a,b);
             } else {
-                int rootA = find(a);
-                int rootB = find(b);
-
-                int result = rootA == rootB ? 1 : 0;
-                sb.append(result + "\n");
+                if (find(a) == find(b))
+                    sb.append(1 + "\n");
+                else
+                    sb.append(0 + "\n");
             }
         }
 
