@@ -20,10 +20,6 @@ public class Main {
                 l = mid + 1;
             }
         }
-
-        if (arr[l] == x) {
-            return l;
-        }
         return -2;
     }
 
