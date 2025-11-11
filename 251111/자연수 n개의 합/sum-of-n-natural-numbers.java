@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    static final int MAX = (int)10e6;
+    static final int MAX = 2*(int)10e6;
     static long[] sum;
 
     public static void main(String[] args) {
