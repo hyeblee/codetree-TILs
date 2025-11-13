@@ -5,6 +5,11 @@ public class Main {
         return number/3 + number/5 - number/15;
     }
 
+
+    static long getNumberCnt(long number) {
+        return number - getCnt(number);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         long n = sc.nextLong();
@@ -14,17 +19,13 @@ public class Main {
 
         while (l < r) {
             long mid = (l + r) / 2;
-            if (getCnt(mid) < n) {
+            if (getNumberCnt(mid) < n) {
                 l = mid + 1;
             } else {
                 r = mid;
             }
         }
 
-        while (l % 3 == 0 || l % 5 == 0) {
-            l--;
-        }
-
-        System.out.println(l-1);
+        System.out.println(l);
     }
 }
