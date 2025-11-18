@@ -32,18 +32,19 @@ public class Main {
 
         long l = 0;
         long r = (long) arr[m-1] * n;
-
+        long answer = 0;
         while (l < r) {
             long mid = (l + r) / 2;
 
             if (isPossible(mid)) {
                 r = mid - 1;
+                answer = mid;
             } else {
                 l = mid + 1;
             }
         }
 
-        System.out.println(r+1);
+        System.out.println(answer);
 
     }
 }
