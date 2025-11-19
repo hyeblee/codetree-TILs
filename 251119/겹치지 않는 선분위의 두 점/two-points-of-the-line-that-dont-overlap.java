@@ -8,10 +8,12 @@ public class Main {
     // 두 점 사이의 거리가 mid 이상이어야 함.
     static boolean possible(long mid) {
         int cnt = 1;
+        long last = arr[0];
 
-        for(int i=0;i<arr.length;i++) {
-            if (arr[i] >= mid) {
+        for(int i=1;i<arr.length;i++) {
+            if (arr[i] - last >= mid) {
                 cnt++;
+                last = arr[i];
             }
             if (cnt >= n) {
                 return true;
@@ -39,20 +41,12 @@ public class Main {
             }
         }
 
-        long[] tmp = new long[set.size()];
+        arr = new long[set.size()];
 
         int cnt=0;
         for(long v: set) {
-            tmp[cnt++] = v;
+            arr[cnt++] = v;
         }
-        Arrays.sort(tmp);
-        arr = new long[cnt-1];
-
-        cnt = 0;
-        for(int i=1;i<set.size();i++) {
-            arr[cnt++] = tmp[i] - tmp[i-1];
-        }
-
         Arrays.sort(arr);
 
 
