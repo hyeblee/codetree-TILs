@@ -1,71 +1,73 @@
 import java.util.*;
+
 public class Main {
 
     static int n, m;
-     // 점 놓을 수 있는 좌표
-    static long[] arr;
+    static long[] start, end;
 
-    // 두 점 사이의 거리가 mid 이상이어야 함.
+    // mid 이상의 간격으로 n개의 점을 놓을 수 있는지 확인하는 함수
     static boolean possible(long mid) {
-        int cnt = 1;
-        long last = arr[0];
+        long last = Long.MIN_VALUE / 2;
+        long cnt = 0;
 
-        for(int i=1;i<arr.length;i++) {
-            if (arr[i] - last >= mid) {
-                cnt++;
-                last = arr[i];
-            }
-            if (cnt >= n) {
-                return true;
-            }
+        for (int i = 0; i < m; i++) {
+            long s = start[i];
+            long e = end[i];
+
+            // 현재 구간에서 첫 배치 가능한 위치
+            long pos = Math.max(s, last + mid);
+
+            if (pos > e) continue;
+
+            // 이 구간에서 놓을 수 있는 점 개수
+            long can = (e - pos) / mid + 1;
+            cnt += can;
+
+            if (cnt >= n) return true;
+
+            // 마지막으로 놓은 점 위치 갱신
+            last = pos + (can - 1) * mid;
         }
-        
-        return false;
+
+        return cnt >= n;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         n = sc.nextInt();
         m = sc.nextInt();
-        
-        long[] start = new long[m];
-        long[] end = new long[m];
 
-        Set<Long> set = new HashSet<>();
+        start = new long[m];
+        end = new long[m];
 
         for (int i = 0; i < m; i++) {
             start[i] = sc.nextLong();
             end[i] = sc.nextLong();
-            for(long j=start[i]; j<=end[i]; j++) {
-                set.add(j);
-            }
         }
 
-        arr = new long[set.size()];
-
-        int cnt=0;
-        for(long v: set) {
-            arr[cnt++] = v;
+        // 구간을 좌측 기준으로 정렬
+        long[][] range = new long[m][2];
+        for (int i = 0; i < m; i++) {
+            range[i][0] = start[i];
+            range[i][1] = end[i];
         }
-        Arrays.sort(arr);
-
+        Arrays.sort(range, Comparator.comparingLong(a -> a[0]));
+        for (int i = 0; i < m; i++) {
+            start[i] = range[i][0];
+            end[i] = range[i][1];
+        }
 
         long l = 0;
+        // 전체 좌표 범위로 상한 설정
         long r = 1_000_000_000_000_000_000L;
 
-        long answer = 1_000_000_000_000_000_000L;
-
         while (l < r) {
-            long mid = (l + r) / 2;
-
-            if (possible(mid)) {
-                l = mid + 1;
-                answer = Math.min(mid, answer);
-            } else {
-                r = mid;
-            }
+            long mid = (l + r + 1) / 2;
+            if (possible(mid)) l = mid;
+            else r = mid - 1;
         }
 
-        System.out.println(answer); 
+        System.out.println(l);
     }
 }
